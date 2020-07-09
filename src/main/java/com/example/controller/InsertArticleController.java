@@ -12,23 +12,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.domain.Article;
 import com.example.form.ArticleForm;
 import com.example.repository.ArticleRepository;
-import com.example.repository.CommentRepository;
 
+/**
+ * 記事を新規投稿するコントローラー.
+ * 
+ * @author hikaru.tsuda
+ *
+ */
+@RequestMapping("/insert")
 @Controller
 public class InsertArticleController {
 	
 	@Autowired
 	private ArticleRepository articleRepository;
 	
+	@Autowired
+	private showBbsController showBbsController;
+	
 	@ModelAttribute
 	public ArticleForm setUpArticleForm() {
 		return new ArticleForm();
 	}
 	
-	@RequestMapping("/insetArticle")
+	/**
+	 * 記事を新規投稿するメソッド.
+	 * 
+	 * @param form 
+	 * @param result
+	 * @param model
+	 * @return 掲示板画面にフォワード
+	 */
+	@RequestMapping("")
 	public String insertArticle(@Validated ArticleForm form, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			return showBbs(model);//ShowBbsControllerのメソッドと仮定
+			return showBbsController.index(model);
 		}
 		
 		Article article = new Article();

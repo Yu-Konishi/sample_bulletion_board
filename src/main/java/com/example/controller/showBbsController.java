@@ -19,7 +19,7 @@ import com.example.repository.ArticleRepository;
  *
  */
 @Controller
-@RequestMapping("/article")
+@RequestMapping("")
 public class showBbsController {
 	
 	@Autowired
@@ -36,7 +36,7 @@ public class showBbsController {
 	 * @param model
 	 * @return 全記事一覧
 	 */
-	@RequestMapping("")
+	@RequestMapping("/article")
 	public String index(Model model) {
 		List<Article> articleList = articleRepository.findAll();
 		
