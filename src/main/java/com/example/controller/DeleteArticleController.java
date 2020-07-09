@@ -32,7 +32,7 @@ public class DeleteArticleController {
 	@RequestMapping("")
 	public String delete(Integer articleId) {
 		commentRepository.deleteByArticleId(articleId);
-		articleRepository.deleteById(articleId);
+		articleRepository.findByarticleId(articleId);
 		return "redirect:bulletin-board";
 	}
 
