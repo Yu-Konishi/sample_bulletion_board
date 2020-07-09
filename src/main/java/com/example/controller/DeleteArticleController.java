@@ -33,7 +33,7 @@ public class DeleteArticleController {
 	public String delete(Integer articleId) {
 		commentRepository.deleteByArticleId(articleId);
 		articleRepository.findByarticleId(articleId);
-		return "redirect:bulletin-board";
+		return "redirect:article";
 	}
 
 }

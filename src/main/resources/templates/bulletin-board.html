@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form th:action="@{/insertArticle}" method="post" th:object="${articleForm}">
+<form th:action="@{/insert}" method="post" th:object="${articleForm}">
 <span th:errors="*{name}" style="color:red"></span><br>
 投稿者名：<input type="text" name="name" th:field="*{name}"><br>
 <span th:errors="*{content}" style="color:red"></span><br>

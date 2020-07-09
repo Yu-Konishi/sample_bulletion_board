@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
 import com.example.form.ArticleForm;
+import com.example.form.CommentForm;
 import com.example.repository.ArticleRepository;
 
 /**
@@ -30,6 +31,11 @@ public class showBbsController {
 		return new ArticleForm();
 	}
 	
+	@ModelAttribute
+	public CommentForm setUpCommentForm() {
+		return new CommentForm();
+	}
+	
 	/**
 	 * 全記事情報一覧を渡して掲示板画面にフォワード.
 	 * 
@@ -42,7 +48,7 @@ public class showBbsController {
 		
 		model.addAttribute("articleList", articleList);
 		
-		return "bulletion-board";
+		return "bulletin-board";
 	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
 import com.example.form.ArticleForm;
+import com.example.form.CommentForm;
 import com.example.repository.ArticleRepository;
 
 /**
@@ -34,6 +35,11 @@ public class InsertArticleController {
 		return new ArticleForm();
 	}
 	
+	@ModelAttribute
+	public CommentForm setUpCommentForm() {
+		return new CommentForm();
+	}
+	
 	/**
 	 * 記事を新規投稿するメソッド.
 	 * 
@@ -52,7 +58,7 @@ public class InsertArticleController {
 		BeanUtils.copyProperties(form, article);
 		articleRepository.insert(article);
 		
-		return  "redirect:/bulletion-board";
+		return  "redirect:/article";
 	}
 
 }
